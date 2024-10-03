@@ -36,9 +36,7 @@ const pool = mysql.createPool({
  }) 
 
  app.post('/api/createEnquiry',(req,res)=>{
-  console.log(req.body)
     const data=req.body;
-    console.log(data)
     pool.query(`insert into Contact (id,name,email,message,orgId) values (uuid(),?,?,?,?)`,[data.name,data.email,data.message, data.orgId],(err,results)=>{
       if(err){
         console.log(err)
